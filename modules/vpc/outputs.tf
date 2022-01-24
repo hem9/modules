@@ -9,3 +9,7 @@ output "ami_id" {
 output "myvpc" {
     value = aws_vpc.this.id
 }
+
+output "mysubnet" {
+    value   = aws_subnet.this.id
+}

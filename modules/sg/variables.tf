@@ -6,6 +6,11 @@ variable "region" {
 variable "vpcid" {
   type   = string
 }
+
+variable "subnetid" {
+  type = string
+  
+}
 variable "rules" {
   type = list(object({
     port        = number
