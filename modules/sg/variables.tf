@@ -13,7 +13,7 @@ variable "subnetid" {
 }
 variable "rules" {
   type = list(object({
-    port        = number
+    port        = number 
     proto       = string
     cidr_blocks = list(string)
     })
