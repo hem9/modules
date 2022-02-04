@@ -1,7 +1,9 @@
 
 resource "aws_internet_gateway" "prod-igw" {
   vpc_id = var.vpcid
-  
+  tags = {
+    Name = "Project_IGW"
+  }
 }
 
 resource "aws_route_table" "prod-public-crt" {
@@ -13,7 +15,9 @@ resource "aws_route_table" "prod-public-crt" {
     //CRT uses this IGW to reach internet
     gateway_id = aws_internet_gateway.prod-igw.id
   }
-
+  tags = {
+    Name = "Project_RouteTable"
+  }
 
 }
 
@@ -42,7 +46,7 @@ resource "aws_security_group" "this" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "SSH-HTTP-securitygroup"
+    Name = "Project_SG"
   }
 }
 

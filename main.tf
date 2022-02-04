@@ -25,6 +25,7 @@ resource "aws_instance" "my_instance" {
   instance_type               = "t2.micro"
   key_name                    = "PrivateKey"
   associate_public_ip_address = true
+  iam_instance_profile        = "AmazonSSMRoleForInstancesQuickSetup"
   vpc_security_group_ids      = [module.sg.security_group_id]
   user_data                   = fileexists("script.sh") ? file("script.sh") : null
   connection {
@@ -32,7 +33,8 @@ resource "aws_instance" "my_instance" {
     private_key = file("${var.PRIVATE_KEY_PATH}")
   }
   tags = {
-    Name = var.ec2_name
+    Name       = var.ec2_name
+    SSHmanaged = var.bool_ssm
   }
 }
 

@@ -9,7 +9,7 @@ resource "aws_vpc" "this" {
   enable_classiclink   = false
   instance_tenancy     = "default"
   tags = {
-    Name = "main-vpc"
+    Name = "Project_VPC"
   }
 
 }
@@ -26,7 +26,7 @@ resource "aws_subnet" "this" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "main-subnet"
+    Name = "Project_Subnet"
   }
 }
 
